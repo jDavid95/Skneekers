@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
-	//"os"
-	//"encoding/csv"
 	"strconv"
 	"time"
 	
@@ -70,18 +68,14 @@ func scrapeListings(doc *goquery.Document, prices *[]float64, dates *[]string) {
 		*dates = append(*(dates), date)
 		
 
-		//fmt.Println(dates)
-
-		//writeToCSV({price})
 		 		
 	})
-	//fmt.Println(prices)
  }
 
 func GetPrices() ([]float64, []string) {
 
 	url := "https://www.ebay.com/sch/i.html?_fsrp=1&rt=nc&_from=R40&_nkw=new+balance+550+aime+leon+dore&_sacat=0&LH_TitleDesc=0&LH_Sold=1"
-	//var prevUrl string
+	
 	var prices []float64
 	var dates []string
 
@@ -94,15 +88,7 @@ func GetPrices() ([]float64, []string) {
 		scrapeListings(doc, &prices, &dates)
 
 		href, _ := doc.Find("nav.pagination>a.pagination__next").Attr("href")
-		//fmt.Println(href+"................")
-		//fmt.Println(prevUrl+"*******")
-		
-		/*if  href == prevUrl || href == "" {
-			break
-		} else {
-			url = href
-			prevUrl = href
-		}*/
+	
 		url = href
 		
 	}
