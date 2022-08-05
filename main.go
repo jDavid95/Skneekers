@@ -10,9 +10,8 @@ import (
 	"syscall"
 	"time"
 	chart "Sneakers/chart"
-	//"Sneakers/scraper"
-	//"io/ioutil"
-
+	"fmt"
+	
 	"github.com/julienschmidt/httprouter"
 	//charts "github.com/wcharczuk/go-chart/v2"
 )
@@ -21,21 +20,30 @@ import (
 
 func newRouter() *httprouter.Router {
 	mux := httprouter.New()
-
-	mux.GET("/sneaker", getChannelStats())
-
+	mux.GET("/", mainPage())
+	mux.GET("/sneaker", searchSneakers())
+	
 	return mux
 }
 
-func getChannelStats() httprouter.Handle {
+func mainPage() httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	http.ServeFile(w, r, r.URL.Path[1:])
+	}
+}
+
+
+func searchSneakers() httprouter.Handle {
+	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+		sneakerName := r.FormValue("Model")
+		size := r.FormValue("Size")
+		fmt.Println(sneakerName+" "+size)
 		
-		chart.ChartIt(w, r)
+		chart.ChartIt(w, r, sneakerName, size)
 	}
 }
 
 func main() {
-	//http.HandleFunc(makeChart())
 	
 	srv := &http.Server{
 		Addr:    ":10101",

@@ -70,11 +70,26 @@ func scrapeListings(doc *goquery.Document, prices *[]float64, dates *[]string) {
 
 		 		
 	})
- }
+}
 
-func GetPrices() ([]float64, []string) {
+func parseQueryName(name string) string{
+	return strings.Replace(name, " ", "+", -1)
+}
 
-	url := "https://www.ebay.com/sch/i.html?_fsrp=1&rt=nc&_from=R40&_nkw=new+balance+550+aime+leon+dore&_sacat=0&LH_TitleDesc=0&LH_Sold=1"
+func parseQuerySize(size string) string{
+	if strings.Contains(size, ".5") == false {
+		return size
+	}
+	return strings.Replace(size, ".5", "%252E5", -1)
+}
+
+func GetPrices(name string, size string) ([]float64, []string) {
+	sneakerName := parseQueryName(name)
+	sneakerSize := parseQuerySize(size)
+	
+	url := "https://www.ebay.com/sch/i.html?_fsrp=1&rt=nc&_from=R40&_nkw="+sneakerName+"&_sacat=0&LH_TitleDesc=0&LH_Sold=1&_oaa=1&_dcat=15709&US%2520Shoe%2520Size="+sneakerSize
+
+	
 	
 	var prices []float64
 	var dates []string

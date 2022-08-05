@@ -4,8 +4,6 @@ package chart
 
 import (
 	"Sneakers/scraper"
-	//"os"
-	//"fmt"
 	"net/http"
 	"time"
 	
@@ -13,6 +11,29 @@ import (
 	charts "github.com/wcharczuk/go-chart/v2"
 	"github.com/wcharczuk/go-chart/v2/drawing"
 )
+
+func findMin(x []float64) float64 {
+	min := x[0]
+
+	for _, r := range x {
+		if ( r < min ) {
+			min = r
+		}
+	}
+	
+	return min
+}
+
+func findMax(x []float64) float64 {
+	max := x[0]
+
+	for _, r := range x {
+		if ( r > max ) {
+			max = r
+		}
+	}
+	return max
+}
 
 func xvalues(rawx []string) []time.Time {
 	var dates []time.Time
@@ -23,17 +44,21 @@ func xvalues(rawx []string) []time.Time {
 	return dates
 }
 
-func ChartIt(res http.ResponseWriter, req *http.Request) {
-	yv, xv := scraper.GetPrices()
+
+
+func ChartIt(res http.ResponseWriter, req *http.Request, name string, size string) {
+	yv, xv := scraper.GetPrices(name, size)
 	dateSold := xvalues(xv)
+	
 	priceSeries := charts.TimeSeries{
-		Name: "SPY",
+		Name: "Price History",
 		Style: charts.Style{
 			StrokeColor: charts.GetDefaultColor(0),
 		},
 		XValues: dateSold,
 		YValues: yv,
 	}
+
 
 	smaSeries := charts.SMASeries{
 		Name: "SPY - SMA",
