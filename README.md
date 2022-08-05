@@ -11,6 +11,6 @@ Currently most of the backend is written. Graph file is the template from go-gar
 
 ### TO-DO
 - [ ] more paginations (currently eBay only allows 4)
-- [ ] support for any brand, model and size. (currently only static link)
+- [x] support for any brand, model and size. (currently only static link)
 - [ ] Front-end, initially just some responsive CSS and HTML, and potentially in the future a framework.
 - [ ] (to be considered) prices from other sites.
