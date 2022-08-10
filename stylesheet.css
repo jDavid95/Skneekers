@@ -1,0 +1,139 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#######_______ ACTUAL STYLING _______##########
+
+html {
+    box-sizing: border-box;
+    
+}
+
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #100C08;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 50px;
+    width: 100%;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+h1{
+    display: block;
+    font-size: 2em;
+    color: white;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+
+}
+
+
+#sneaker-model {
+    background-color: #B1A2CA;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 50%;
+    padding: 2px 23px 2px 30px;
+    
+}
+
+#sneaker-model:hover, #sneaker-model:focus {
+    box-shadow: 0px 0px 50px #FF6D6A;
+}
+
+#sneaker-size {
+    background-color: #FF6D6A;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 25%;
+    padding: 2px 23px 2px 30px;
+}
+
+#sneaker-size:hover, #sneaker-size:focus {
+    box-shadow: 0px 0px 50px #FF6D6A;
+}
+
+::placeholder {
+    color: black;
+    opacity: 1;
+}
+
+#sneaker-size::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.search-button {
+    background-color: #8031A7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 20%;
+    padding: 2px 23px 2px 30px;
+    
+}
+
+.search-button:hover , .search-button:focus {
+    box-shadow: 0px 0px 50px #FF6D6A;
+}
