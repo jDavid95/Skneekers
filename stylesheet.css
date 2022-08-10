@@ -85,11 +85,14 @@ h1{
 
 }
 
+.panel-img {
+    max-width: 100%;
+}
 
 #sneaker-model {
     background-color: #B1A2CA;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     height: 40px;
     width: 50%;
     padding: 2px 23px 2px 30px;
@@ -103,7 +106,7 @@ h1{
 #sneaker-size {
     background-color: #FF6D6A;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     height: 40px;
     width: 25%;
     padding: 2px 23px 2px 30px;
@@ -127,7 +130,7 @@ h1{
     background-color: #8031A7;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     height: 40px;
     width: 20%;
     padding: 2px 23px 2px 30px;
@@ -136,4 +139,20 @@ h1{
 
 .search-button:hover , .search-button:focus {
     box-shadow: 0px 0px 50px #FF6D6A;
+}
+
+@media (max-width: 600px) {
+    #sneaker-size {
+	width: 35%;
+	margin-bottom: 10px;
+    }
+    #sneaker-model{
+	width: 60%;
+    }
+    .search-button {
+	display: block;
+	padding: 2px 23px 2px 20px;
+	margin-left: 40%;
+    }
+    
 }
